@@ -14,4 +14,10 @@ class PlacesController < ApplicationController
 		end
 	end
 
+	def delete
+		@place = Place.find_by(:id => params["id"])
+		@place.delete
+		redirect_to "/"
+	end
+
 end
