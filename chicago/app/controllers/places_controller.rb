@@ -52,9 +52,14 @@ class PlacesController < ApplicationController
 		updated_place.admission_price = params["price"]
 		updated_place.description = params["description"]
 		updated_place.save
-		#puts "Hello: #{updated_place}"
 		redirect_to "/"
 	end
 
+
+	def add_review
+		Review.create(reviewed_place_id: params["id"], title: params["review_title"], rating: params["review_rating"], description: params["review_description"])
+		
+		redirect_to "/places/#{params["id"]}"
+	end
 
 end

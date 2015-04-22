@@ -3,3 +3,20 @@
 <img src=<%= @place.photo_url %> alt="place_pic">
 <br><br>
 <p><%= @place.description %></p>
+<br><br>
+<h4>Reviews</h4>
+Write a review
+<form action="/places/<%= @place.id%>/add_review">
+<select name="review_rating">
+  <option value="5">5 Stars</option>
+  <option value="4">4 Stars</option>
+  <option value="3">3 Stars</option>
+  <option value="2">2 Stars</option>
+  <option value="1">1 Star</option>
+</select>
+<input type="text" name="review_title"><br>
+<textarea rows="4" cols="50" name="review_description"> </textarea> <br>
+    <input type="submit" value="Submit" 
+         name="Submit" />
+
+</form>
