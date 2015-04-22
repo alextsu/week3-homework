@@ -1,5 +1,7 @@
-<ul>
 
+<p><a href="/places/new">Add a new place</a></p>
+
+<ul>
   <% @places.each do |place| %>
     <li>
       <%= link_to place.title, "/places/#{place.id}" %>
