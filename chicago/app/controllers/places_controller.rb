@@ -11,8 +11,12 @@ class PlacesController < ApplicationController
 	def show
 
 		if is_number?(params["id"])
+			@reviews = Review.where(:reviewed_place_id => params["id"].to_i)
 
 			@place = Place.find_by(:id => params["id"])
+
+
+			#@reviews = Review.find_by(:reviewed_place_id => params["id"])
 
 			if @place != nil
 

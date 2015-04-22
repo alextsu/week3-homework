@@ -6,6 +6,18 @@
 <br><br>
 <h4>Reviews</h4>
 Write a review
+
+<ul>
+  <% @reviews.reverse.each do |review| %>
+    
+      <b><%= review.title %></b><br>
+      <p style="text-indent: 3em;"><%= review.description %></p>
+      <p style="text-indent: 3em;">Star Rating: <%= review.rating %></p>
+      <hr>
+  <% end %>
+
+</ul>
+
 <form action="/places/<%= @place.id%>/add_review">
 <select name="review_rating">
   <option value="5">5 Stars</option>
@@ -13,6 +25,7 @@ Write a review
   <option value="3">3 Stars</option>
   <option value="2">2 Stars</option>
   <option value="1">1 Star</option>
+  <option value="0">0 Stars</option>
 </select>
 <input type="text" name="review_title"><br>
 <textarea rows="4" cols="50" name="review_description"> </textarea> <br>
