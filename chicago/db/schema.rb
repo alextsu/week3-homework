@@ -13,11 +13,11 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "places", force: true do |p|
-    p.string  "title"
-    p.string  "photo_url"
-    p.integer "admission_price"
-    p.string  "description"
+  create_table "places", force: true do |t|
+    t.string  "title"
+    t.string  "photo_url"
+    t.integer "admission_price"
+    t.string  "description"
   end
 
 end

@@ -1,0 +1,10 @@
+<ul>
+
+  <% @places.each do |place| %>
+    <li>
+      <%= link_to place.title, "/places/#{place.id}" %>
+      ($<%= place[:admission_price] %>) (delete)
+    </li>
+  <% end %>
+
+</ul>
