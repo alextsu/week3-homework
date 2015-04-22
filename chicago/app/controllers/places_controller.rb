@@ -35,18 +35,25 @@ class PlacesController < ApplicationController
 
 
 	def create
-		Place.create(title: params["title"], photo_url: params["photo_url"], admission_price: params["price"], description: params["description"])
+		Place.create(title: params["title"], photo_url: params["photo_url"], admission_price: (params["price"].to_i * 100), description: params["description"])
 		redirect_to "/"
 	end
 
 
 	def edit
-
+		@place = Place.find_by(:id => params["id"])
 	end
 
 
 	def update
-
+		updated_place = Place.find_by(id: params["id"])
+		updated_place.title = params["title"]
+		updated_place.photo_url = params["photo_url"]
+		updated_place.admission_price = params["price"]
+		updated_place.description = params["description"]
+		updated_place.save
+		#puts "Hello: #{updated_place}"
+		redirect_to "/"
 	end
 
 

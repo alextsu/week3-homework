@@ -1,5 +1,5 @@
 <h2><%= @place.title %></h2>
-<h4>Admission Price: $<%= sprintf('%.2f', (@place.admission_price / 100)) %> </h4>
+<h4>Admission Price: $<%= sprintf('%.2f', (@place.admission_price / 100)) %> <a href="/places/<%= @place.id %>/edit">Edit</a></h4>
 <img src=<%= @place.photo_url %> alt="place_pic">
 <br><br>
 <p><%= @place.description %></p>
