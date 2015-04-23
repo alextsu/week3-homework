@@ -5,7 +5,7 @@
   <% @places.each do |place| %>
     <li>
       <%= link_to place.title, "/places/#{place.id}" %>
-      ($<%= sprintf('%.2f', (place[:admission_price] / 100)) %>) <a href="/places/<%=place.id%>/delete">(delete)</a>
+      ($<%= sprintf('%.2f', (place[:admission_price] / 100.00)) %>) <a href="/places/<%=place.id%>/delete">(delete)</a>
   <% end %>
 
 </ul>

@@ -16,7 +16,6 @@ class PlacesController < ApplicationController
 			@place = Place.find_by(:id => params["id"])
 
 
-			#@reviews = Review.find_by(:reviewed_place_id => params["id"])
 
 			if @place != nil
 
@@ -39,7 +38,7 @@ class PlacesController < ApplicationController
 
 
 	def create
-		Place.create(title: params["title"], photo_url: params["photo_url"], admission_price: (params["price"].to_i * 100), description: params["description"])
+		Place.create(title: params["title"], photo_url: params["photo_url"], admission_price: (params["price"].to_f * 100).to_i, description: params["description"])
 		redirect_to "/"
 	end
 
@@ -50,10 +49,12 @@ class PlacesController < ApplicationController
 
 
 	def update
+		puts "&&&&&&&&&&& #{(params["price"].to_f * 100).to_i}"
+
 		updated_place = Place.find_by(id: params["id"])
 		updated_place.title = params["title"]
 		updated_place.photo_url = params["photo_url"]
-		updated_place.admission_price = params["price"]
+		updated_place.admission_price = (params["price"].to_f * 100).to_i
 		updated_place.description = params["description"]
 		updated_place.save
 		redirect_to "/"

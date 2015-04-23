@@ -4,7 +4,7 @@
 	<br>
 	Photo Url: <input type="text" name="photo_url" value="<%= @place.photo_url%>" ><br>
 	<br>
-	Price: <input type="text" name="price" value="<%= sprintf('%.2f', (@place.admission_price / 100)) %>"><br>
+	Price: <input type="text" name="price" value="<%= sprintf('%.2f', (@place.admission_price / 100.00)) %>"><br>
 	<br>
 	Description: 
 	<br><textarea rows="4" cols="50" name="description" > <%= @place.description %> </textarea>
